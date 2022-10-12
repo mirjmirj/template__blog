@@ -1,0 +1,21 @@
+= wrap_layout :layout do
+
+  .content
+
+    article
+      header.article-header
+        h2.h1 = current_article.title
+        time = current_article.date.strftime('%b %e, %Y')
+        ul.article-tags
+          li File Under:
+          - current_article.tags.each do |tag|
+            li: a[href="#"] = tag 
+
+      .article-body = current_article.body
+      
+      footer.article-footer
+        time = current_article.date.strftime('%b %e, %Y')
+        ul.article-tags
+          li File Under: 
+          - current_article.tags.each do |tag|
+            li: a[href="#{tag_path(tag)}"] = tag 

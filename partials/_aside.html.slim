@@ -1,0 +1,10 @@
+aside
+  h3.h6 Steve Smith / Global Control Style
+  p I am an Illustrator working across illustration, installation, motion and publishing since 2000. Amongst other things I have published books, exhibited my work at galleries. This blog covers all my current illustration projects, travel, work in progress, collaborations etc I am always happy to hear from new people and creatives please contact me.
+
+  p Updates also on twitter @ <a href="">twitter.com/smithglobalcontrolstyle</a> instagram 'globalcontrolstyle'
+
+  h3.h6 Recent Articles
+  ul
+    - blog.articles[0...5].each do |article|
+      li: a href="#{ article.url }" = article.title

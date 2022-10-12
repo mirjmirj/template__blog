@@ -1,0 +1,14 @@
+---
+title: Topics
+---
+
+.content
+
+  h2.content-header Topics
+  ul
+    - blog.tags.each do |tag, articles|
+      li.topic-tag
+        h3.h6 = tag
+        ul
+          - articles.each do |article|
+            li.topic-tag-articles: a href="#{ article.url }" = article.title

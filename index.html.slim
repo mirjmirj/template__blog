@@ -1,0 +1,32 @@
+---
+title: Index
+pageable: true
+per_page: 3
+---
+
+.content
+  - page_articles.each do |article|
+    article
+      header.article-header
+        h2.h1: a[href="#{article.url}"] = article.title
+        time = article.date.strftime('%b %e, %Y')
+        ul.article-tags
+          li File Under:
+          - article.tags.each do |tag|
+            li: a[href="#{tag_path(tag)}"] = tag 
+
+      .article-body = article.body
+      
+      footer.article-footer
+        time = article.date.strftime('%b %e, %Y')
+        ul.article-tags
+          li File Under: 
+          - article.tags.each do |tag|
+            li: a[href="#{tag_path(tag)}"] = tag 
+
+  .pagination
+    - if paginate
+      - if prev_page
+        p.pagination-prev = link_to 'Previous page', prev_page
+      - if next_page
+        p.pagination-next = link_to 'Next page', next_page
